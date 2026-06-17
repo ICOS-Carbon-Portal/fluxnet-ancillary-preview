@@ -2,6 +2,8 @@ dash==4.2.0
 plotly==6.8.0
 pandas==3.0.3
 numpy==2.4.6
+scipy==1.17.1
+openpyxl==3.1.5
 requests==2.34.2
 icoscp_core==0.3.12
 gunicorn==23.0.0

@@ -20,6 +20,10 @@ parquet/
 # Station data dumps (downloaded on demand)
 ICOSETC_*.csv
 
+# Per-tree biomass database (large external xlsx; provided/mounted, not committed)
+DATAFILE_Biomass_ICOS_*.xlsx
+*.xlsx
+
 # Screenshots / scratch (keep bif_screenshot.png, tracked explicitly)
 report_*.png
 dash_*.png

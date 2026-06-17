@@ -24,6 +24,33 @@ CACHE.mkdir(parents=True, exist_ok=True)
 ETC_ARCHIVE = "http://meta.icos-cp.eu/resources/cpmeta/etcArchiveProduct"
 CYAN, INK = "#00abc9", "#222"
 
+# ColorBrewer "Accent" — the qualitative palette the original R/ggplot report used
+# (scale_fill_brewer(palette="Accent")): pale green, lavender, light orange, ...
+ACCENT = ["#7fc97f", "#beaed4", "#fdc086", "#ffff99",
+          "#386cb0", "#f0027f", "#bf5b17", "#666666"]
+
+# Two interchangeable visual styles selectable in the UI / export.
+#   "icos"    = the app's native cyan + plotly_white look (default)
+#   "classic" = emulates the original R report (theme_minimal + Accent fill, black borders)
+STYLES = {
+    "icos": {
+        "label": "ICOS", "template": "plotly_white",
+        "font": "Segoe UI, Arial", "line": CYAN, "seq": [CYAN], "bar_line": None,
+        "tex": {"CLAY": "#1f9e89", "SILT": "#fdc23e", "SAND": "#e76f51", "ROCK": "#9aa0a6"},
+    },
+    "classic": {
+        "label": "Classic (R report)", "template": "simple_white",
+        "font": "Helvetica Neue, Helvetica, Arial", "line": "#386cb0", "seq": ACCENT,
+        "bar_line": dict(color="black", width=1),
+        "tex": {"CLAY": "#7fc97f", "SILT": "#fdc086", "SAND": "#beaed4", "ROCK": "#666666"},
+    },
+}
+DEFAULT_STYLE = "classic"
+
+
+def get_style(name):
+    return STYLES.get(name or DEFAULT_STYLE, STYLES[DEFAULT_STYLE])
+
 # dictionary is station-independent; bundled with the app (BE-Bra copy as fallback)
 _DICT_PATH = next((p for p in (HERE / "BIF_Ancillary_Variables.csv",
                                HERE / "BE-Bra_BIF_Ancillary_Variables.csv") if p.exists()), None)
@@ -55,9 +82,6 @@ SPECS = {
                        "measures": ["CONC_C", "CONC_N", "CONC_P", "CONC_K", "CONC_CA", "CONC_MG"],
                        "by": "SPP"},
 }
-TEX_COLORS = {"CLAY": "#1f9e89", "SILT": "#fdc23e", "SAND": "#e76f51", "ROCK": "#9aa0a6"}
-
-
 # ---------------- helpers ----------------
 
 def num(s):
@@ -160,14 +184,23 @@ def groups_present(bif):
 
 # ---------------- Plotly figures ----------------
 
-def _style(fig, height):
-    fig.update_layout(template="plotly_white", height=height,
+def _style(fig, height, style):
+    fig.update_layout(template=style["template"], height=height,
                       margin=dict(l=10, r=10, t=46, b=10),
-                      title_font_color=INK, font_family="Segoe UI, Arial")
+                      title_font_color=INK, font_family=style["font"])
     return fig
 
 
-def _profile(w, group, spec):
+def _bar_marker(style, n):
+    """Per-category bar colours (cycled palette) + optional outline, as a Plotly marker dict."""
+    seq = style["seq"]
+    marker = {"color": [seq[i % len(seq)] for i in range(n)]}
+    if style["bar_line"]:
+        marker["line"] = style["bar_line"]
+    return marker
+
+
+def _profile(w, group, spec, style):
     pfx = group.replace("GRP_", "")
     dmin, dmax = f"{pfx}_PROFILE_MIN", f"{pfx}_PROFILE_MAX"
     if dmin not in w.columns:
@@ -189,9 +222,10 @@ def _profile(w, group, spec):
                         subplot_titles=[f"{m.replace('_', ' ')} [{unit_of(v)}]" for m, v, _ in panels])
     for i, (m, var, s) in enumerate(panels, 1):
         fig.add_trace(go.Scatter(x=s[var], y=s["_d"], mode="lines+markers",
-                                 line=dict(color=CYAN), name=m), row=1, col=i)
+                                 line={"color": style["line"]}, name=m), row=1, col=i)
     fig.update_yaxes(autorange="reversed", row=1, col=1, title_text="depth [cm] (0 = surface)")
-    _style(fig, 430).update_layout(showlegend=False, title=f"{title_of(group)} — depth profile")
+    _style(fig, 430, style).update_layout(showlegend=False,
+                                          title=f"{title_of(group)} — depth profile")
     recs = [(f"{num(pd.Series([r[dmin]]))[0]:g} to {num(pd.Series([r[dmax]]))[0]:g}",
              m.replace("_", " "), r[var]) for m, var, s in panels for _, r in s.iterrows()]
     tab = (pd.DataFrame(recs, columns=["depth [cm]", "measure", "mean"])
@@ -199,7 +233,7 @@ def _profile(w, group, spec):
     return fig, tab, "Mean by soil depth layer."
 
 
-def _texture(w, group, spec):
+def _texture(w, group, spec, style):
     pfx = group.replace("GRP_", "")
     dmin, dmax = f"{pfx}_PROFILE_MIN", f"{pfx}_PROFILE_MAX"
     rows = {}
@@ -218,19 +252,21 @@ def _texture(w, group, spec):
     labels = [f"{lo:g}–{hi:g}" for lo, hi in mat.index]
     fig = go.Figure()
     for f in mat.columns:
-        fig.add_bar(y=labels, x=mat[f].fillna(0), orientation="h", name=f,
-                    marker_color=TEX_COLORS.get(f.upper(), "#888"))
+        marker = {"color": style["tex"].get(f.upper(), "#888")}
+        if style["bar_line"]:
+            marker["line"] = style["bar_line"]
+        fig.add_bar(y=labels, x=mat[f].fillna(0), orientation="h", name=f, marker=marker)
     fig.update_layout(barmode="stack", xaxis_title="% by mass",
-                      yaxis=dict(autorange="reversed", title="depth layer [cm]"),
+                      yaxis={"autorange": "reversed", "title": "depth layer [cm]"},
                       title=f"{title_of(group)} fractions by depth")
-    _style(fig, max(260, 60 * len(mat) + 120))
+    _style(fig, max(260, 60 * len(mat) + 120), style)
     tab = mat.copy()
     tab.index = labels
     tab.index.name = "depth [cm]"
     return fig, tab, "Particle-size fractions per soil depth layer."
 
 
-def _elements(w, group, spec):
+def _elements(w, group, spec, style):
     pfx = group.replace("GRP_", "")
     by = f"{pfx}_{spec['by']}" if f"{pfx}_{spec['by']}" in w.columns else None
     ms = [(m, f"{pfx}_{m}") for m in spec["measures"]
@@ -249,15 +285,15 @@ def _elements(w, group, spec):
         agg = (s.groupby(by)[var].mean().sort_values() if by and s[by].notna().any()
                else pd.Series({"all": s[var].mean()}))
         fig.add_trace(go.Bar(y=agg.index.astype(str), x=agg.values, orientation="h",
-                             marker_color=CYAN), row=r, col=c)
+                             marker=_bar_marker(style, len(agg))), row=r, col=c)
         tab[m.replace("CONC_", "")] = agg
-    _style(fig, 240 * nrow + 60).update_layout(
+    _style(fig, 240 * nrow + 60, style).update_layout(
         showlegend=False, title=f"{title_of(group)} — mean concentration"
         + (f" by {spec['by'].lower()}" if by else ""))
     return fig, pd.DataFrame(tab), "Mean elemental concentrations."
 
 
-def _cover(w, group, spec):
+def _cover(w, group, spec, style):
     # schema varies by site: cover value is SPP_O_PERC (most sites) or a numeric SPP_O (BE-Bra);
     # species name is the text column SPP_O, SPP_O_SPP, or any *_SPP.
     val = next((c for c in ("SPP_O_PERC", "SPP_PERC") if c in w.columns and num(w[c]).notna().any()), None)
@@ -288,10 +324,10 @@ def _cover(w, group, spec):
         unit = str(w["SPP_PERC_UNIT"].dropna().mode().iat[0])
     unit = unit or "%"
     fig = go.Figure(go.Bar(y=agg.index.astype(str), x=agg.values, orientation="h",
-                           marker_color=CYAN))
+                           marker=_bar_marker(style, len(agg))))
     fig.update_layout(xaxis_title=f"cover [{unit}]",
                       title=f"{title_of(group)} — mean cover by species")
-    _style(fig, max(260, 26 * len(agg) + 120))
+    _style(fig, max(260, 26 * len(agg) + 120), style)
     tab = agg.sort_values(ascending=False).to_frame(f"cover [{unit}]")
     tab.index.name = "species"
     return fig, tab, desc_of(val) or "Species / vegetation type percent cover."
@@ -321,7 +357,7 @@ def _category(w):
     return "YEAR" if "YEAR" in w.columns else None
 
 
-def _generic(w, group):
+def _generic(w, group, style):
     pv = _primary_var(w, group)
     if pv is None:
         return None
@@ -341,22 +377,22 @@ def _generic(w, group):
         return None
     agg = d.dropna(subset=[pv]).groupby(cat)[pv].mean().sort_values().tail(14)
     fig = go.Figure(go.Bar(y=agg.index.astype(str), x=agg.values, orientation="h",
-                           marker_color=CYAN))
+                           marker=_bar_marker(style, len(agg))))
     fig.update_layout(xaxis_title=f"{pv}" + (f" [{unit}]" if unit else ""),
                       title=f"Mean {title_of(group).lower()} by {cat.lower().replace('_', ' ')}")
-    _style(fig, max(260, 32 * len(agg) + 120))
+    _style(fig, max(260, 32 * len(agg) + 120), style)
     tab = (d.dropna(subset=[pv]).groupby(cat)[pv].mean().sort_values(ascending=False)
              .to_frame(pv + (f" [{unit}]" if unit else "")))
     return fig, tab, desc_of(pv)
 
 
-def figure_for(group, w):
+def figure_for(group, w, style):
     spec = SPECS.get(group)
     out = None
     if spec:
         out = {"profile": _profile, "texture": _texture, "elements": _elements,
-               "cover": _cover}[spec["kind"]](w, group, spec)
-    return out or _generic(w, group)
+               "cover": _cover}[spec["kind"]](w, group, spec, style)
+    return out or _generic(w, group, style)
 
 
 # metadata/qualifier suffixes to hide from info cards
@@ -380,6 +416,8 @@ def _info(w, group):
     return None, tab, "Reported values."
 
 
-def section_for(group, w):
-    """(fig | None, table, desc). Falls back to an info table when no chart applies."""
-    return figure_for(group, w) or _info(w, group)
+def section_for(group, w, style=None):
+    """(fig | None, table, desc). Falls back to an info table when no chart applies.
+
+    `style` is a STYLES entry (see get_style); defaults to the ICOS style."""
+    return figure_for(group, w, style or STYLES[DEFAULT_STYLE]) or _info(w, group)

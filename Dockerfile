@@ -7,7 +7,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # application code + station-independent variable dictionary
-COPY app.py ancillary_lib.py bif_parser.py BIF_Ancillary_Variables.csv ./
+COPY app.py ancillary_lib.py classic_lib.py bif_parser.py BIF_Ancillary_Variables.csv ./
 
 # station CSV cache lives on a mounted volume (see docker-compose.yml)
 ENV ANCILLARY_CACHE=/data/cache

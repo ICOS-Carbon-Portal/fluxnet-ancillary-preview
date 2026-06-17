@@ -76,6 +76,32 @@ docker compose up -d            # recreates container if image/compose changed
 docker compose up -d --build    # add --build when app code or Dockerfile changed
 ```
 
+## Report styles & the per-tree biomass database
+
+The app offers two report styles (toggle in the top bar):
+
+- **ICOS** — the native cyan / plotly_white charts (one mean per category).
+- **Classic (R report)** — faithfully reproduces the ETC_PROCESSING_SUITE ggplot
+  figures (campaign/year/species-resolved bars and time series with SD error bars,
+  ColorBrewer "Accent" palette, black outlines).
+
+Two Classic figures — the **DBH frequency histogram** and the **spatial biomass map** —
+are not derivable from the L2 BIF product; they need the individual-tree biomass
+database (`DATAFILE_Biomass_ICOS_*.xlsx`). The app finds it via, in order:
+
+1. the `ICOS_TREE_DB` environment variable (full path), or
+2. a `DATAFILE_Biomass_ICOS_*.xlsx` file in the app dir (`/app`) or the cache dir (`/data/cache`).
+
+Simplest in production: drop the file into the mounted cache volume — no rebuild:
+
+```bash
+cp DATAFILE_Biomass_ICOS_20260310.xlsx /opt/fluxnet-ancillary-preview/cache/
+docker compose restart        # picks up the new file (it's read once per process)
+```
+
+If the file is absent these two plots degrade gracefully to a short explanatory note;
+all other Classic figures still render. The file is read once and cached in memory.
+
 ## TLS
 
 The nginx config assumes Let's Encrypt certs and keeps the ACME challenge path open on :80.
