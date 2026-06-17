@@ -4,7 +4,7 @@ services:
     image: icos-ancillary-viewer:latest
     container_name: icos-ancillary-viewer
     ports:
-      - "8050:8050"
+      - "8049:8050"   # host 8049 -> gunicorn 8050 (front-end nginx proxies to :8049)
     volumes:
       # station CSV cache + stations.json; on ICOS servers point this at shared storage
       - ./cache:/data/cache
