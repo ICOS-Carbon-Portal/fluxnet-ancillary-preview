@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+parquet/
+*.png
+*.pdf
+*.zip
+*.html
+dash.log
+report_*.png
+ICOSETC_*_ANCILLARY_L2.csv
+ICOSETC_*_Ancillary_*.csv
+make_pdf.py
+build_report.py
+na_fco2_annual.py

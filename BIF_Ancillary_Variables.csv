@@ -1,0 +1,368 @@
+VARIABLE NAME,VARIABLE DESCRIPTION,UNIT
+SITE_ID,Six character site identifier. MANDATORY if site is already registered,CC-Sss
+SPP_O,Overstory species (taxa),Scientific name
+SPP_O_VEGTYPE,Overstory vegetation type,LIST(VEGTYPE)
+SPP_O_PREVALENCE,Overstory species or vegetation type prevalence at site,LIST(PREVALENCE)
+SPP_O_PERC,"Overstory species or vegetation type percent cover (by mass, number, estimated abundance, or area)",%
+SPP_O_PERC_STATISTIC,Overstory species or vegetation type percent cover statistic,LIST(STATISTIC)
+SPP_O_PERC_STATISTIC_METHOD,Overstory species or vegetation type percent cover statistic method,LIST(STATISTIC_METHOD)
+SPP_O_PERC_STATISTIC_NUMBER,Number of observations used to determine overstory species or vegetation type percent cover statistic,integer number
+SPP_U,Understory species (taxa),Scientific name
+SPP_U_VEGTYPE,Understory vegetation type,LIST(VEGTYPE)
+SPP_U_PREVALENCE,Understory species or vegetation type prevalence at site,LIST(PREVALENCE)
+SPP_U_PERC,"Understory species or vegetation type percent cover (by mass, number, estimated abundance, or area)",%
+SPP_U_PERC_STATISTIC,Understory species or vegetation type percent cover statistic,LIST(STATISTIC)
+SPP_U_PERC_STATISTIC_METHOD,Understory species or vegetation type percent cover statistic method,LIST(STATISTIC_METHOD)
+SPP_U_PERC_STATISTIC_NUMBER,Number of observations used to determine understory species or vegetation type percent cover statistic,integer number
+SPP_PERC_UNIT,Unit of the species or vegetation type percent cover measurement,LIST(UNIT_SPP)
+SPP_APPROACH,Species or vegetation type percent cover measurement approach,free text
+SPP_DATE,Species or vegetation type percent cover measurement date,YYYYMMDDHHMM
+SPP_DATE_START,Start date of species or vegetation type percent cover measurement,YYYYMMDDHHMM
+SPP_DATE_END,End date of species or vegetation type percent cover measurement,YYYYMMDDHHMM
+SPP_DATE_UNC,"Uncertainty in the species or vegetation type percent cover measurement date, start date, and/or end date",days
+SPP_COMMENT,Species or vegetation type percent cover measurement comments,free text
+LAI,"Vegetation (Plant, Leaf, Green) Area Index",m2 m-2
+LAI_TYPE,"Vegetation (Plant, Leaf, Green) Area Index type",LIST(LAI_TYPE)
+LAI_CANOPY_TYPE,"Vegetation (Plant, Leaf, Green) Area Index canopy type",LIST(LAI_CANOPY_TYPE)
+LAI_SPP,"Vegetation (Plant, Leaf, Green) Area Index species (taxa)",Scientific name
+LAI_VEGTYPE,"Vegetation (Plant, Leaf, Green) Area Index vegetation type",LIST(VEGTYPE)
+LAI_STATISTIC,"Vegetation (Plant, Leaf, Green) Area Index statistic",LIST(STATISTIC)
+LAI_STATISTIC_METHOD,"Vegetation (Plant, Leaf, Green) Area Index statistic method",LIST(STATISTIC_METHOD)
+LAI_STATISTIC_NUMBER,"Number of observations used to determine Vegetation (Plant, Leaf, Green) Area Index statistic",integer number
+LAI_CLUMP,"Foliage element clumping index for Vegetation (Plant, Leaf, Green) Area Index measurement",decimal number
+LAI_METHOD,"Vegetation (Plant, Leaf, Green) Area Index methodology",LIST(LAI_METHOD)
+LAI_APPROACH,"Vegetation (Plant, Leaf, Green) Area Index measurement approach",free text
+LAI_DATE,"Vegetation (Plant, Leaf, Green) Area Index measurement date",YYYYMMDDHHMM
+LAI_DATE_START,"Start date of Vegetation (Plant, Leaf, Green) Area Index measurement",YYYYMMDDHHMM
+LAI_DATE_END,"End date of Vegetation (Plant, Leaf, Green) Area Index measurement",YYYYMMDDHHMM
+LAI_DATE_UNC,"Uncertainty in the Vegetation (Plant, Leaf, Green) Area Index measurement date, start date, and/or end date",days
+LAI_COMMENT,"Vegetation (Plant, Leaf, Green) Area Index comments",free text
+BIOMASS,Biomass,units specified in BIOMASS_UNIT
+BIOMASS_UNIT,Measurement unit of Biomass ,LIST(UNIT_BIOMASS)
+BIOMASS_SPP,Biomass species (taxa),Scientific name
+BIOMASS_VEGTYPE,Biomass vegetation type,LIST(VEGTYPE)
+BIOMASS_STATISTIC,Biomass statistic,LIST(STATISTIC)
+BIOMASS_STATISTIC_METHOD,Biomass statistic methoD,LIST(STATISTIC_METHOD)
+BIOMASS_STATISTIC_NUMBER,Number of observations used to determine Biomass statistics,integer number
+BIOMASS_ORGAN,Organ or component for which biomass is reported,LIST(BIOM_ORGAN)
+BIOMASS_PHEN,Phenology of the organ for which biomass is reported,LIST(BIOM_ORGAN_PHEN)
+BIOMASS_LIFESTAGE,Biomass of this life stage,LIST(LIFESTAGE)
+BIOMASS_VEG_STATUS,Biomass of this vegetation status,LIST(VEG_STATUS)
+BIOMASS_APPROACH,Biomass approach,free text
+BIOMASS_DATE,Biomass measurement date,YYYYMMDDHHMM
+BIOMASS_DATE_START,Start date of Biomass measurement,YYYYMMDDHHMM
+BIOMASS_DATE_END,End date of Biomass measurement,YYYYMMDDHHMM
+BIOMASS_DATE_UNC,"Uncertainty in the Biomass measurement date, start date, and/or end date",days
+BIOMASS_COMMENT,Biomass comments,free text
+HEIGHTC,Canopy height,m
+HEIGHTC_SPP,Canopy height species (taxa),Scientific name
+HEIGHTC_VEGTYPE,Canopy height vegetation type,LIST(VEGTYPE)
+HEIGHTC_STATISTIC,Canopy height statistic,LIST(STATISTIC)
+HEIGHTC_STATISTIC_METHOD,Canopy height statistic method,LIST(STATISTIC_METHOD)
+HEIGHTC_STATISTIC_NUMBER,Number of observations used to determine canopy height statistic,integer number
+HEIGHTC_U,Understory canopy height,m
+HEIGHTC_U_SPP,Understory canopy height species (taxa),Scientific name
+HEIGHTC_U_VEGTYPE,Understory canopy height vegetation type,LIST(VEGTYPE)
+HEIGHTC_U_STATISTIC,Understory canopy height statistic,LIST(STATISTIC)
+HEIGHTC_U_STATISTIC_METHOD,Understory canopy height statistic method,LIST(STATISTIC_METHOD)
+HEIGHTC_U_STATISTIC_NUMBER,Number of observations used to determine understory canopy height statistic,integer number
+HEIGHTC_APPROACH,Canopy height measurement approach,free text
+HEIGHTC_DATE,Canopy height measurement date,YYYYMMDDHHMM
+HEIGHTC_DATE_START,Start date of canopy height measurement,YYYYMMDDHHMM
+HEIGHTC_DATE_END,End date of canopy height measurement,YYYYMMDDHHMM
+HEIGHTC_DATE_UNC,"Uncertainty in the canopy height measurement date, start date, and/or end date",days
+HEIGHTC_COMMENT,Canopy height comments,free text
+SA,Stand age,years
+SA_STATISTIC,Stand age statistic,LIST(STATISTIC)
+SA_STATISTIC_METHOD,Stand age statistic method,LIST(STATISTIC_METHOD)
+SA_STATISTIC_NUMBER,Number of observations used to determine stand age statistic,integer number
+SA_APPROACH,Stand age measurement approach,free text
+SA_DATE,Stand age measurement date,YYYYMMDDHHMM
+SA_DATE_START,Start date of stand age measurement,YYYYMMDDHHMM
+SA_DATE_END,End date of stand age measurement,YYYYMMDDHHMM
+SA_DATE_UNC,Uncertainty in the stand age measurement date,days
+SA_COMMENT,Stand age comments,free text
+DBH,Tree diameter at breast height (DBH),cm
+DBH_SPP,Tree diameter at breast height (DBH) species (taxa),Scientific name
+DBH_VEGTYPE,Tree diameter at breast height (DBH) vegetation type,LIST(VEGTYPE)
+DBH_STATISTIC,Tree diameter at breast height (DBH) statistic,LIST(STATISTIC)
+DBH_STATISTIC_METHOD,Tree diameter at breast height (DBH) statistic method,LIST(STATISTIC_METHOD)
+DBH_STATISTIC_NUMBER,Number of observations used to determine tree diameter at breast height (DBH) statistic,integer number
+DBH_HEIGHT,Mean height at which tree diameter at breast height (DBH) was measured,m
+DBH_MIN,Minimum tree size (diameter) threshold for tree diameter at breast height (DBH) measurement,cm
+DBH_APPROACH,Tree diameter at breast height (DBH) approach,free text
+DBH_DATE,Diameter at Breast Height measurement date,YYYYMMDDHHMM
+DBH_DATE_START,Start date of tree diameter at breast height (DBH) measurement,YYYYMMDDHHMM
+DBH_DATE_END,End date of tree diameter at breast height (DBH) measurement,YYYYMMDDHHMM
+DBH_DATE_UNC,"Uncertainty in the tree diameter at breast height (DBH) measurement date, start date, and/or end date",days
+DBH_COMMENT,Tree diameter at breast height (DBH) comments,free text
+BASAL_AREA,Basal area,m2 ha-1
+BASAL_AREA_SPP,Basal area species (taxa),Scientific name
+BASAL_AREA_VEGTYPE,Basal area vegetation type,LIST(VEGTYPE)
+BASAL_AREA_STATISTIC,Basal area statistic,LIST(STATISTIC)
+BASAL_AREA_STATISTIC_METHOD,Basal area statistic method,LIST(STATISTIC_METHOD)
+BASAL_AREA_STATISTIC_NUMBER,Number of observations used to determine basal area statistic,integer number
+BASAL_AREA_DBH_MIN,Minimum tree size (diameter) threshold for basal area measurement,cm
+BASAL_AREA_APPROACH,Basal Area measurement approach,free text
+BASAL_AREA_DATE,Basal Area measurement date,YYYYMMDDHHMM
+BASAL_AREA_DATE_START,Start date of basal area measurement,YYYYMMDDHHMM
+BASAL_AREA_DATE_END,End date of basal area measurement,YYYYMMDDHHMM
+BASAL_AREA_DATE_UNC,"Uncertainty in the basal area measurement date, start date, and/or end date",days
+BASAL_AREA_COMMENT,Basal area comments,free text
+TREES_NUM,Number of trees per hectare,trees ha-1
+TREES_NUM_SPP,Number of trees per hectare species (taxa),Scientific name
+TREES_NUM_VEGTYPE,Number of trees per hectare vegetation type,LIST(VEGTYPE)
+TREES_NUM_STATISTIC,Number of trees per hectare statistic,LIST(STATISTIC)
+TREES_NUM_STATISTIC_METHOD,Number of trees per hectare statistic method,LIST(STATISTIC_METHOD)
+TREES_NUM_STATISTIC_NUMBER,Number of observations used to determine number of trees per hectare statistic,integer number
+TREES_NUM_DBH_MIN,Minimum tree size (diameter) threshold for the number of trees per hectare measurement,cm
+TREES_NUM_LIFESTAGE,Number of trees per hectare of this life stage,LIST(LIFESTAGE)
+TREES_NUM_VEG_STATUS,Number of trees per hectare of this vegetation status,LIST(VEG_STATUS)
+TREES_NUM_APPROACH,Number of trees per hectare approach,free text
+TREES_NUM_DATE,Number of trees per hectare measurement date,YYYYMMDDHHMM
+TREES_NUM_DATE_START,Start date of number of trees per hectare measurement,YYYYMMDDHHMM
+TREES_NUM_DATE_END,End date of number of trees per hectare measurement,YYYYMMDDHHMM
+TREES_NUM_DATE_UNC,"Uncertainty in the number of trees per hectare measurement date, start date, and/or end date",days
+TREES_NUM_COMMENT,Number of trees per hectare comments,free text
+ROOT_DEPTH,Root depth,cm
+ROOT_DEPTH_SPP,Root depth species (taxa),Scientific name
+ROOT_DEPTH_VEGTYPE,Root depth vegetation type,LIST(VEGTYPE)
+ROOT_DEPTH_STATISTIC,Root depth statistic,LIST(STATISTIC)
+ROOT_DEPTH_STATISTIC_METHOD,Root depth statistic method,LIST(STATISTIC_METHOD)
+ROOT_DEPTH_STATISTIC_NUMBER,Number of observations used to determine root depth statistic,integer number
+ROOT_DEPTH_APPROACH,Root depth measurement approach,free text
+ROOT_DEPTH_DATE,Root depth measurement date,YYYYMMDDHHMM
+ROOT_DEPTH_DATE_START,Start date of root depth measurement,YYYYMMDDHHMM
+ROOT_DEPTH_DATE_END,End date of root depth measurement,YYYYMMDDHHMM
+ROOT_DEPTH_DATE_UNC,"Uncertainty in the root depth measurement date, start date, and/or end date",days
+ROOT_DEPTH_COMMENT,Root depth comments,free text
+PHEN_EVENT_TYPE,Phenology event type,LIST(PHEN_EVENT)
+PHEN_EVENT_STATUS,Phenology event status,LIST(PHEN_STATUS)
+PHEN_EVENT_SPP,Phenology event species (taxa),Scientific name
+PHEN_EVENT_VEGTYPE,Phenology event vegetation type,LIST(VEGTYPE)
+PHEN_EVENT_DATE,Phenology event date for the reported statistic,YYYYMMDDHHMM 
+PHEN_EVENT_DATE_STATISTIC,Phenology event date statistic,LIST(STATISTIC)
+PHEN_EVENT_DATE_STATISTIC_METHOD,Phenology event date statistic method,LIST(STATISTIC_METHOD)
+PHEN_EVENT_DATE_STATISTIC_NUMBER,Number of observations used to determine phenology event date statistic,integer number
+PHEN_EVENT_DATE_STD_DEV,Phenology event date standard deviation,days
+PHEN_EVENT_DATE_MEAS_UNC,Phenology event date spatial measurement uncertainty,days
+PHEN_EVENT_APPROACH,Phenology event observation approach,free text
+PHEN_EVENT_COMMENT,Phenology event comments,free text
+LITTER,Litter,units specified in LITTER_UNIT
+LITTER_UNIT,Measurement unit of Litter ,LIST(LITTER_UNIT)
+LITTER_SPP,Litter species (taxa),Scientific name
+LITTER_VEGTYPE,Litter vegetation type,LIST(VEGTYPE)
+LITTER_STATISTIC,Litter statistic,LIST(STATISTIC)
+LITTER_STATISTIC_METHOD,Litter statistic method,LIST(STATISTIC_METHOD)
+LITTER_STATISTIC_NUMBER,Number of observations used to determine Litter statistics,integer number
+LITTER_ORGAN,Organ or component for which Litter is reported,LIST(LITTER_ORGAN)
+LITTER_APPROACH,Litter approach,free text
+LITTER_DATE,Litter measurement date,YYYYMMDDHHMM
+LITTER_DATE_START,Start date of Litter measurement,YYYYMMDDHHMM
+LITTER_DATE_END,End date of Litter measurement,YYYYMMDDHHMM
+LITTER_DATE_UNC,"Uncertainty in the Litter measurement date, start date, and/or end date",days
+LITTER_COMMENT,Litter comments,free text
+SOIL_CHEM_C_ORG,Soil organic carbon concentration,g C kg soil-1
+SOIL_CHEM_C_ORG_STATISTIC,Soil organic carbon concentration statistic,LIST(STATISTIC)
+SOIL_CHEM_C_ORG_STATISTIC_METHOD,Soil organic carbon concentration statistic method,LIST(STATISTIC_METHOD)
+SOIL_CHEM_C_ORG_STATISTIC_NUMBER,Number of observations used to determine soil organic carbon concentration statistic,integer number
+SOIL_CHEM_N_TOT,Soil total nitrogen concentration,g N kg soil-1
+SOIL_CHEM_N_TOT_STATISTIC,Soil total nitrogen concentration statistic,LIST(STATISTIC)
+SOIL_CHEM_N_TOT_STATISTIC_METHOD,Soil total nitrogen concentration statistic method,LIST(STATISTIC_METHOD)
+SOIL_CHEM_N_TOT_STATISTIC_NUMBER,Number of observations used to determine soil total nitrogen concentration statistic,integer number
+SOIL_CHEM_NH4,Soil ammonium concentration,g NH4 kg soil-1
+SOIL_CHEM_NH4_STATISTIC,Soil ammonium concentration statistic,LIST(STATISTIC)
+SOIL_CHEM_NH4_STATISTIC_METHOD,Soil ammonium concentration statistic method,LIST(STATISTIC_METHOD)
+SOIL_CHEM_NH4_STATISTIC_NUMBER,Number of observations used to determine soil ammonium concentration statistic,integer number
+SOIL_CHEM_NO3,Soil nitrate concentration,g NO3 kg soil-1
+SOIL_CHEM_NO3_STATISTIC,Soil nitrate concentration statistic,LIST(STATISTIC)
+SOIL_CHEM_NO3_STATISTIC_METHOD,Soil nitrate concentration statistic method,LIST(STATISTIC_METHOD)
+SOIL_CHEM_NO3_STATISTIC_NUMBER,Number of observations used to determine soil nitrate concentration statistic,integer number
+SOIL_CHEM_K,Soil potassium concentration,g K kg soil-1
+SOIL_CHEM_K_STATISTIC,Soil potassium concentration statistic,LIST(STATISTIC)
+SOIL_CHEM_K_STATISTIC_METHOD,Soil potassium concentration statistic method,LIST(STATISTIC_METHOD)
+SOIL_CHEM_K_STATISTIC_NUMBER,Number of observations used to determine soil potassium concentration statistic,integer number
+SOIL_CHEM_P,Soil phosphorus concentration,g P kg soil-1
+SOIL_CHEM_P_STATISTIC,Soil phosphorus concentration statistic,LIST(STATISTIC)
+SOIL_CHEM_P_STATISTIC_METHOD,Soil phosphorus concentration statistic method,LIST(STATISTIC_METHOD)
+SOIL_CHEM_P_STATISTIC_NUMBER,Number of observations used to determine soil phosphorus concentration statistic,integer number
+SOIL_CHEM_CN_RATIO,Soil C/N ratio,% by mass
+SOIL_CHEM_CN_RATIO_STATISTIC,Soil C/N ratio statistic,LIST(STATISTIC)
+SOIL_CHEM_CN_RATIO_STATISTIC_METHOD,Soil C/N ratio statistic method,LIST(STATISTIC_METHOD)
+SOIL_CHEM_CN_RATIO_STATISTIC_NUMBER,Number of observations used to determine soil C/N ratio statistic,integer number
+SOIL_CHEM_PH_SALT,Soil pH by CaCl2 or other salt,decimal number
+SOIL_CHEM_PH_SALT_STATISTIC,Soil pH by CaCl2 or other salt statistic,LIST(STATISTIC)
+SOIL_CHEM_PH_SALT_STATISTIC_METHOD,Soil pH by CaCl2 or other salt statistic method,LIST(STATISTIC_METHOD)
+SOIL_CHEM_PH_SALT_STATISTIC_NUMBER,Number of observations used to determine soil pH by CaCl2 or other salt statistic,integer number
+SOIL_CHEM_PH_H2O,Soil pH by H2O,decimal number
+SOIL_CHEM_PH_H2O_STATISTIC,Soil pH by H2O statistic,LIST(STATISTIC)
+SOIL_CHEM_PH_H2O_STATISTIC_METHOD,Soil pH by H2O statistic method,LIST(STATISTIC_METHOD)
+SOIL_CHEM_PH_H2O_STATISTIC_NUMBER,Number of observations used to determine soil pH by H2O statistic,integer number
+SOIL_CHEM_BD,Soil bulk density,g cm-3
+SOIL_CHEM_BD_STATISTIC,Soil bulk density statistic,LIST(STATISTIC)
+SOIL_CHEM_BD_STATISTIC_METHOD,Soil bulk density statistic method,LIST(STATISTIC_METHOD)
+SOIL_CHEM_BD_STATISTIC_NUMBER,Number of observations used to determine soil bulk density statistic,integer number
+SOIL_CHEM_PROFILE_ZERO_REF,Soil chemistry profile zero reference,LIST(PROFILE_ZERO_REF)
+SOIL_CHEM_PROFILE_MIN,Soil chemistry profile minimum depth,cm
+SOIL_CHEM_PROFILE_MAX,Soil chemistry profile maximum depth,cm
+SOIL_CHEM_HORIZON,Soil chemistry profile horizon,free text
+SOIL_CHEM_APPROACH,Soil chemistry measurement approach,free text
+SOIL_CHEM_DATE,Soil chemistry measurement sampling date,YYYYMMDDHHMM
+SOIL_CHEM_DATE_UNC,Uncertainty in the Soil chemistry measurement sampling date,days
+SOIL_CHEM_COMMENT,Soil chemistry comments,free text
+SOIL_STOCK_C_ORG,Soil organic carbon stock,g C m-2
+SOIL_STOCK_C_ORG_STATISTIC,Soil organic carbon stock statistic,LIST(STATISTIC)
+SOIL_STOCK_C_ORG_STATISTIC_METHOD,Soil organic carbon stock statistic method,LIST(STATISTIC_METHOD)
+SOIL_STOCK_C_ORG_STATISTIC_NUMBER,Number of observations used to determine soil organic carbon stock statistic,integer number
+SOIL_STOCK_N_TOT,Soil total nitrogen stock,g N m-2
+SOIL_STOCK_N_TOT_STATISTIC,Soil total nitrogen stock statistic,LIST(STATISTIC)
+SOIL_STOCK_N_TOT_STATISTIC_METHOD,Soil total nitrogen stock statistic method,LIST(STATISTIC_METHOD)
+SOIL_STOCK_N_TOT_STATISTIC_NUMBER,Number of observations used to determine soil total nitrogen stock statistic,integer number
+SOIL_STOCK_NH4,Soil ammonium stock,g NH4 m-2
+SOIL_STOCK_NH4_STATISTIC,Soil ammonium stock statistic,LIST(STATISTIC)
+SOIL_STOCK_NH4_STATISTIC_METHOD,Soil ammonium stock statistic method,LIST(STATISTIC_METHOD)
+SOIL_STOCK_NH4_STATISTIC_NUMBER,Number of observations used to determine soil ammonium stock statistic,integer number
+SOIL_STOCK_NO3,Soil nitrate stock,g NO3 m-2
+SOIL_STOCK_NO3_STATISTIC,Soil nitrate stock statistic,LIST(STATISTIC)
+SOIL_STOCK_NO3_STATISTIC_METHOD,Soil nitrate stock statistic method,LIST(STATISTIC_METHOD)
+SOIL_STOCK_NO3_STATISTIC_NUMBER,Number of observations used to determine soil nitrate stock statistic,integer number
+SOIL_STOCK_K,Soil potassium stock,g K m-2
+SOIL_STOCK_K_STATISTIC,Soil potassium stock statistic,LIST(STATISTIC)
+SOIL_STOCK_K_STATISTIC_METHOD,Soil potassium stock statistic method,LIST(STATISTIC_METHOD)
+SOIL_STOCK_K_STATISTIC_NUMBER,Number of observations used to determine soil potassium stock statistic,integer number
+SOIL_STOCK_P,Soil phosphorus stock,g P m-2
+SOIL_STOCK_P_STATISTIC,Soil phosphorus stock statistic,LIST(STATISTIC)
+SOIL_STOCK_P_STATISTIC_METHOD,Soil phosphorus stock statistic method,LIST(STATISTIC_METHOD)
+SOIL_STOCK_P_STATISTIC_NUMBER,Number of observations used to determine soil phosphorus stock statistic,integer number
+SOIL_STOCK_PROFILE_ZERO_REF,Soil stock profile zero reference,LIST(PROFILE_ZERO_REF)
+SOIL_STOCK_PROFILE_MIN,Soil stock profile minimum depth,cm
+SOIL_STOCK_PROFILE_MAX,Soil stock profile maximum depth,cm
+SOIL_STOCK_HORIZON,Soil stock profile horizon,free text
+SOIL_STOCK_APPROACH,Soil stock measurement approach,free text
+SOIL_STOCK_DATE,Soil stock measurement sampling date,YYYYMMDDHHMM
+SOIL_STOCK_DATE_UNC,Uncertainty in the Soil stock measurement sampling date,days
+SOIL_STOCK_COMMENT,Soil stock comments,free text
+SOIL_TEX_SAND,Sand content,%
+SOIL_TEX_SAND_STATISTIC,Sand content statistic,LIST(STATISTIC)
+SOIL_TEX_SAND_STATISTIC_METHOD,Sand content statistic method,LIST(STATISTIC_METHOD)
+SOIL_TEX_SAND_STATISTIC_NUMBER,Number of observations used to determine sand content statistic,integer number
+SOIL_TEX_SILT,Silt content,%
+SOIL_TEX_SILT_STATISTIC,Silt content statistic,LIST(STATISTIC)
+SOIL_TEX_SILT_STATISTIC_METHOD,Silt content statistic method,LIST(STATISTIC_METHOD)
+SOIL_TEX_SILT_STATISTIC_NUMBER,Number of observations used to determine silt content statistic,integer number
+SOIL_TEX_CLAY,Clay content,%
+SOIL_TEX_CLAY_STATISTIC,Clay content statistic,LIST(STATISTIC)
+SOIL_TEX_CLAY_STATISTIC_METHOD,Clay content statistic method,LIST(STATISTIC_METHOD)
+SOIL_TEX_CLAY_STATISTIC_NUMBER,Number of observations used to determine clay content statistic,integer number
+SOIL_TEX_ROCK,Rock content (>2mm),%
+SOIL_TEX_ROCK_STATISTIC,Rock content (>2mm) statistic,LIST(STATISTIC)
+SOIL_TEX_ROCK_STATISTIC_METHOD,Rock content (>2mm) statistic method,LIST(STATISTIC_METHOD)
+SOIL_TEX_ROCK_STATISTIC_NUMBER,Number of observations used to determine rock content (>2mm) statistic,integer number
+SOIL_TEX_WATER_HOLD_CAP,Soil water holding capacity,%vol
+SOIL_TEX_WATER_HOLD_CAP_STATISTIC,Soil water holding capacity statistic,LIST(STATISTIC)
+SOIL_TEX_WATER_HOLD_CAP_STATISTIC_METHOD,Soil water holding capacity statistic method,LIST(STATISTIC_METHOD)
+SOIL_TEX_WATER_HOLD_CAP_STATISTIC_NUMBER,Number of observations used to determine soil water holding capacity statistic,integer number
+SOIL_TEX_WILT,Wilting point,%vol
+SOIL_TEX_WILT_STATISTIC,Wilting point statistic,LIST(STATISTIC)
+SOIL_TEX_WILT_STATISTIC_METHOD,Wilting point statistic method,LIST(STATISTIC_METHOD)
+SOIL_TEX_WILT_STATISTIC_NUMBER,Number of observations used to determine wilting point statistic,integer number
+SOIL_TEX_SAT,Soil water saturation point,%vol
+SOIL_TEX_SAT_STATISTIC,Soil water saturation point statistic,LIST(STATISTIC)
+SOIL_TEX_SAT_STATISTIC_METHOD,Soil water saturation point statistic method,LIST(STATISTIC_METHOD)
+SOIL_TEX_SAT_STATISTIC_NUMBER,Number of observations used to determine soil water saturation point statistic,integer number
+SOIL_TEX_FIELD_CAP,Field capacity,%vol
+SOIL_TEX_FIELD_CAP_STATISTIC,Field capacity statistic,LIST(STATISTIC)
+SOIL_TEX_FIELD_CAP_STATISTIC_METHOD,Field capacity statistic method,LIST(STATISTIC_METHOD)
+SOIL_TEX_FIELD_CAP_STATISTIC_NUMBER,Number of observations used to determine field capacity statistic,integer number
+SOIL_TEX_PROFILE_ZERO_REF,Soil texture profile zero reference,LIST(PROFILE_ZERO_REF)
+SOIL_TEX_PROFILE_MIN,Soil texture profile minimum depth,cm
+SOIL_TEX_PROFILE_MAX,Soil texture profile maximum depth,cm
+SOIL_TEX_HORIZON,Soil texture profile horizon,free text
+SOIL_TEX_APPROACH,Soil texture measurement approach,free text
+SOIL_TEX_DATE,Soil texture measurement date,YYYYMMDDHHMM
+SOIL_TEX_DATE_UNC,Uncertainty in the Soil texture measurement date,days
+SOIL_TEX_COMMENT,Soil texture comments,free text
+PFCURVE_MP,Water retention (pF) curve matric potential,kPa
+PFCURVE_MP_STATISTIC,Water retention (pF) curve matric potential statistic,LIST(STATISTIC)
+PFCURVE_MP_STATISTIC_METHOD,Water retention (pF) curve matric potential statistic method,LIST(STATISTIC_METHOD)
+PFCURVE_MP_STATISTIC_NUMBER,Number of observations used to determine water retention (pF) curve matric potential statistic,integer number
+PFCURVE_SWC,Water retention (pF) curve soil water content (SWC),%
+PFCURVE_SWC_STATISTIC,Water retention (pF) curve soil water content (SWC) statistic,LIST(STATISTIC)
+PFCURVE_SWC_STATISTIC_METHOD,Water retention (pF) curve soil water content (SWC) statistic method,LIST(STATISTIC_METHOD)
+PFCURVE_SWC_STATISTIC_NUMBER,Number of observations used to determine water retention (pF) curve soil water content (SWC) statistic,integer number
+PFCURVE_SWC_UNIT,Measurement unit of Water retention (pF) curve soil water content (SWC),LIST(UNIT_SWC)
+PFCURVE_APPROACH,Water retention (pF) curve measurement approach,free text
+PFCURVE_DATE,Water retention (pF) curve measurement date,YYYYMMDDHHMM
+PFCURVE_DATE_UNC,Uncertainty in the Water retention (pF) curve measurement date,days
+PFCURVE_COMMENT,Water retention (pF) curve comments,free text
+WTD,Water table depth (not continuous measurements),m
+WTD_STATISTIC,Water table depth statistic,LIST(STATISTIC)
+WTD_STATISTIC_METHOD,Water table depth statistic method,LIST(STATISTIC_METHOD)
+WTD_STATISTIC_NUMBER,Number of observations used to determine water table depth statistic,integer number
+WTD_APPROACH,Water table depth measurement approach,free text
+WTD_DATE,Water table depth measurement date,YYYYMMDDHHMM
+WTD_DATE_UNC,Uncertainty in the Water table depth measurement date,days
+WTD_COMMENT,Water table depth comments,free text
+SWC,Soil water content (not continuous measurements),%
+SWC_STATISTIC,Soil water content statistic,LIST(STATISTIC)
+SWC_STATISTIC_METHOD,Soil water content statistic method,LIST(STATISTIC_METHOD)
+SWC_STATISTIC_NUMBER,Number of observations used to determine soil water content statistic,integer number
+SWC_UNIT,Measurement unit of Soil water content,LIST(UNIT_SWC)
+SWC_PROFILE_ZERO_REF,Soil water content profile zero reference,LIST(PROFILE_ZERO_REF)
+SWC_PROFILE_MIN,Soil water content profile minimum depth,cm
+SWC_PROFILE_MAX,Soil water content profile maximum depth,cm
+SWC_HORIZON,Soil water content horizon,free text
+SWC_APPROACH,Soil water content measurement approach,free text
+SWC_DATE,Soil water content measurement date,YYYYMMDDHHMM
+SWC_DATE_START,Start date of Soil water content measurment,YYYYMMDDHHMM
+SWC_DATE_END,End date of Soil water content measurement,YYYYMMDDHHMM
+SWC_DATE_UNC,Uncertainty in the Date(s) of Soil water content measurement,days
+SWC_COMMENT,Soil water content comments,free text
+SOIL_WRB_GROUP,Soil Group for tower site according to the Soil World Reference Base for Soil Resources (WRB),LIST(SOIL_GROUP)
+SOIL_WRB_GROUP_APPROACH,Approach used for assigning Soil WRB Group,free text
+SOIL_WRB_GROUP_COMMENT,Soil WRB Group comments,free text
+SOIL_ORDER,Soil Order for tower site according to National Resource Conservation Service (NRCS) Soil Taxonomy,LIST(SOIL_ORDER)
+SOIL_ORDER_APPROACH,Approach used for assigning Soil Order,free text
+SOIL_ORDER_COMMENT,Soil Order comments,free text
+SOIL_CLASSIFICATION,Soil Classification for tower site according to a taxonomy,free text
+SOIL_CLASSIFICATION_TAXONOMY,Specify the taxonomy used for Soil Classification,LIST(SOIL_CLASS_TAXON)
+SOIL_CLASSIFICATION_APPROACH,Approach used for assigning Soil Classification,free text
+SOIL_CLASSIFICATION_COMMENT,Soil Classification comments,free text
+SOIL_SERIES,Soil Series for tower site according to a taxonomy,free text
+SOIL_SERIES_APPROACH,Approach used for assigning Soil Series,free text
+SOIL_SERIES_COMMENT,Soil Series comments,free text
+SOIL_DEPTH,Soil depth,cm
+SOIL_DEPTH_STATISTIC,Soil depth statistic,LIST(STATISTIC)
+SOIL_DEPTH_STATISTIC_METHOD,Soil depth statistic method,LIST(STATISTIC_METHOD)
+SOIL_DEPTH_STATISTIC_NUMBER,Number of observations used to determine soil depth statistic,integer number
+SOIL_DEPTH_ORG,Soil depth of organic horizon,cm
+SOIL_DEPTH_ORG_STATISTIC,Soil depth of organic horizon statistic,LIST(STATISTIC)
+SOIL_DEPTH_ORG_STATISTIC_METHOD,Soil depth of organic horizon statistic method,LIST(STATISTIC_METHOD)
+SOIL_DEPTH_ORG_STATISTIC_NUMBER,Number of observations used to determine soil depth of organic horizon statistic,integer number
+SOIL_DEPTH_APPROACH,Soil depth measurement approach,free text
+SOIL_DEPTH_DATE,Soil depth measurement date,YYYYMMDDHHMM
+SOIL_DEPTH_DATE_UNC,Uncertainty in the Soil depth measurement date,days
+SOIL_DEPTH_COMMENT,Soil depth comments,free text
+VEG_CHEM_SPP,Vegetation chemistry species (taxa),Scientific name
+VEG_CHEM_VEGTYPE,Type of vegetation,LIST(VEGTYPE)
+VEG_CHEM_ORGAN,Organ or component for which chemistry is reported,LIST(ORGAN)
+VEG_CHEM_LMA,Leaf mass per unit leaf area,g cm-1
+VEG_CHEM_CONC_CA,Ca concentration in the sample dried at 65 °C,gCa kg-1
+VEG_CHEM_CONC_CU,Cu concentration in the sample dried at 65 °C,mgCu kg-1
+VEG_CHEM_CONC_FE,Fe concentration in the sample dried at 65 °C,mgFe kg-1
+VEG_CHEM_CONC_MG,Mg concentration in the sample dried at 65 °C,gMg kg-1
+VEG_CHEM_CONC_MN,Mn concentration in the sample dried at 65 °C,mgMn kg-1
+VEG_CHEM_CONC_C,C concentration in the sample dried at 65 °C,gC kg-1
+VEG_CHEM_CONC_N,N concentration in the sample dried at 65 °C,gN kg-1
+VEG_CHEM_CONC_P,P concentration in the sample dried at 65 °C,gP kg-1
+VEG_CHEM_CONC_K,K concentration in the sample dried at 65 °C,gK kg-1
+VEG_CHEM_CONC_ZN,Zn concentration in the sample dried at 65 °C,mgZn kg-1
+VEG_CHEM_DRYRATIO,Ratio of dry mass at 103 °C divided by dry mass at 65 °C,%
+VEG_CHEM_STATISTIC,Vegetation chemistry statistic,LIST(STATISTIC)
+VEG_CHEM_STATISTIC_METHOD,Vegetation chemistry statistic method,LIST(STATISTIC_METHOD)
+VEG_CHEM_STATISTIC_NUMBER,Number of observations used to determine Vegetation chemistry statistic,integer number
+VEG_CHEM_DATE,Vegetation chemistry measurement sampling date,YYYYMMDDHHMM
+VEG_CHEM_DATE_START,Vegetation chemistry measurement sampling date start,YYYYMMDDHHMM
+VEG_CHEM_DATE_END,Vegetation chemistry measurement sampling date end,YYYYMMDDHHMM
+VEG_CHEM_DATE_UNC,Uncertainty in the Vegetation chemistry measurement sampling date,days
+VEG_CHEM_COMMENT,Vegetation chemistry comments,free text

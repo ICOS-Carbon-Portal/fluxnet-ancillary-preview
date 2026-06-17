@@ -1,0 +1,31 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Local data cache & derived data (fetched/generated at runtime)
+cache/
+parquet/
+
+# Local ICOS credentials — never commit
+.icoscp/
+*cpauthToken*
+
+# Generated artifacts
+*.zip
+*.pdf
+*.html
+*.log
+
+# Station data dumps (downloaded on demand)
+ICOSETC_*.csv
+
+# Screenshots / scratch (keep bif_screenshot.png, tracked explicitly)
+report_*.png
+dash_*.png
+export_test.*
+
+# Unrelated scratch from other tasks
+na_fco2_annual.py
+make_pdf.py
+fco2_*.*

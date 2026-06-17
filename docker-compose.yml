@@ -1,0 +1,13 @@
+services:
+  ancillary-viewer:
+    build: .
+    image: icos-ancillary-viewer:latest
+    container_name: icos-ancillary-viewer
+    ports:
+      - "8050:8050"
+    volumes:
+      # station CSV cache + stations.json; on ICOS servers point this at shared storage
+      - ./cache:/data/cache
+    environment:
+      - ANCILLARY_CACHE=/data/cache
+    restart: unless-stopped

@@ -1,0 +1,8 @@
+# Local (WSL) override — auto-merged by `docker compose`.
+# Mounts the host's ICOS credentials into the container so icoscp_core can
+# authenticate and fetch any station live. NOT used on ICOS's own servers
+# (there the data needs no auth); keep this file out of the server deployment.
+services:
+  ancillary-viewer:
+    volumes:
+      - ${HOME}/.icoscp:/root/.icoscp
