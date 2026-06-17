@@ -73,7 +73,13 @@ Generic charts: `GRP_BIOMASS`, `GRP_BASAL_AREA`, `GRP_DBH`, `GRP_HEIGHTC` (canop
 (`GRP_SOIL_CLASSIFICATION`, `GRP_SOIL_WRB_GROUP`) render as info tables. Unknown groups get a
 humanized title and the generic renderer automatically.
 
+## License
+
+Code in this repository is licensed under the **GNU General Public License v3.0** — see
+[LICENSE](LICENSE).
+
 ## Citing the data
 
-Ancillary data are © ICOS and distributed under **CC-BY-4.0**. Please cite and acknowledge
-ICOS, and reference the specific station's L2 archive (DOI/PID on the Carbon Portal).
+Ancillary data are © ICOS and distributed under **CC-BY-4.0** (separate from the code license).
+Please cite and acknowledge ICOS, and reference the specific station's L2 archive (DOI/PID on
+the Carbon Portal).
